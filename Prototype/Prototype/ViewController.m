@@ -11,12 +11,52 @@
 
 @interface ViewController ()
 
+@property (nonatomic, copy) NSString *nameCopy;
+@property (nonatomic, strong) NSString *nameStrong;
+
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    int i = 10;
+    int j = 10;
+    int k = i;
+    
+    NSLog(@"i 地址：%p",&i);
+    NSLog(@"j 地址：%p",&j);
+    NSLog(@"k 地址：%p",&k);
+    
+    
+    NSString *str1 = @"bb";
+    NSString *str2 = @"bb";
+    NSString *str3 = str1;
+
+    NSLog(@"str1 地址：%p",str1);
+    NSLog(@"str2 地址：%p",str2);
+    NSLog(@"str3 地址：%p",str3);
+    
+    NSString *strB = @"bb";
+    self.nameStrong = strB;
+    
+    strB = @"cc";
+    NSLog(@"strB ：%@",strB);
+    NSLog(@"self.nameStrong ：%@",self.nameStrong);
+    NSLog(@"strB 地址：%p",strB);
+    NSLog(@"self.nameStrong 地址：%p",self.nameStrong);
+    
+    NSString *strC = @"ee";
+    self.nameCopy = strC;
+    
+    strC = @"ff";
+    NSLog(@"strC ：%@",strC);
+    NSLog(@"self.nameCopy ：%@",self.nameCopy);
+    NSLog(@"strC 地址：%p",strC);
+    NSLog(@"self.nameCopy 地址：%p",self.nameCopy);
+    
+    
     NSString *str = @"aa";
     NSString *copyStr = [str copy];
     
